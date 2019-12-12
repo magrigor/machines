@@ -566,7 +566,7 @@ endif
 "
 let g:ctrlp_match_window = "bottom,order:btt"
 let g:ctrlp_dont_split = 'netrw'
-let g:ctrlp_working_path_mode = 0
+let g:ctrlp_working_path_mode = 'ra'
 
 if executable('rg')
     set grepprg=rg\ --color=never
