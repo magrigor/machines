@@ -1,5 +1,5 @@
 FROM "archlinux"
-RUN pacman -Sy --noconfirm git ripgrep lynx vim vifm
+RUN pacman -Sy --noconfirm git ctags ripgrep lynx vim vifm
 RUN echo $'\
 accept_all_cookies=on\n\
 case_sensitive_searching=on\n\
