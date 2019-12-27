@@ -1,42 +1,24 @@
 FROM "debian:stable-slim"
 RUN apt-get -y update
-RUN apt-get -y install mc vim
-RUN echo $'""Created by Dockerfile\n\
-command! FixWhitespace :%s/\s\+$//e\n\
-set nocompatible\n\
-filetype indent plugin on\n\
-syntax on\n\
-set laststatus=2\n\
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\\ (line\\ %l\\/%L,\\ col\\ %c)\\\n\
-set ruler\n\
-set number\n\
-let no_buffers_menu=1\n\
-set encoding=utf-8\n\
-set fileencoding=utf-8\n\
-set fileencodings=utf-8\n\
-set ttyfast\n\
-set ma\n\
-set incsearch\n\
-set hlsearch\n\
-set ignorecase\n\
-set smartcase\n\
-set wildignore+=*/tmp/*,*/node_modules/*,*/dist/*,*.so,*.swp,*.zip\n\
-set fileformats=unix,dos,mac\n\
-set backspace=indent,eol,start\n\
-set autoindent\n\
-set confirm\n\
-set tabstop=4\n\
-set softtabstop=0\n\
-set shiftwidth=4\n\
-set expandtab\n\
-set modeline\n\
-set modelines=10\n\
-set hidden\n\
-set noswapfile\n\
-set nobackup\n\
-set showcmd\n\
-set showmode\n\
-set visualbell\n\
-set t_vb=\n\
-set mouse=a\n'\
->> /root/.vimrc
+RUN apt-get -y install git curl ctags ripgrep lynx vim vifm
+RUN echo $'\
+accept_all_cookies=on\n\
+case_sensitive_searching=on\n\
+dir_list_order=ORDER_BY_NAME\n\
+dir_list_style=MIXED_STYLE\n\
+emacs_keys=off\n\
+file_sorting_method=BY_FILENAME\n\
+keypad_mode=LINKS_ARE_NUMBERED\n\
+preferred_language=en\n\
+select_popups=on\n\
+show_color=default\n\
+show_cursor=off\n\
+show_dotfiles=off\n\
+sub_bookmarks=OFF\n\
+verbose_images=on\n\
+vi_keys=on\n\
+visited_links=LAST_REVERSED\n'\
+>> /root/.lynxrc
+COPY ./config/debl/.vifm /root/.vifm
+COPY ./config/debl/.vim /root/.vim
+ENV TERM=xterm-256color

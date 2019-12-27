@@ -32,8 +32,14 @@ let s:gui_black     = '#25272C'
 let s:gui_gray      = '#282D34'
 let s:gui_lightgray = '#53586F'
 let s:gui_white     = '#F6F9FC'
+let s:gui_green     = '#25B8A5'
+let s:gui_red       = '#BA2A2A'
+let s:gui_lightred  = '#C95F5F'
 
+let s:cterm_red       = 1
+let s:cterm_light_red = 9
 let s:cterm_blue      = 4
+let s:cterm_green     = 14
 let s:cterm_lightblue = 12
 let s:cterm_black     = 0
 let s:cterm_gray      = 8
@@ -76,7 +82,7 @@ let g:airline#themes#archery#palette.inactive_modified = {
 " Insert
 " ----------------------------
 
-let s:I1 = [s:gui_black, s:gui_white, s:cterm_black, s:cterm_white]
+let s:I1 = [s:gui_black, s:gui_green, s:cterm_black, s:cterm_white]
 let s:I2 = [s:gui_black, s:gui_lightblue, s:cterm_black, s:cterm_lightblue]
 let s:I3 = [s:gui_white, s:gui_gray, s:cterm_white, s:cterm_gray]
 
@@ -90,7 +96,7 @@ let g:airline#themes#archery#palette.insert_modified = {
 " Replace
 " ----------------------------
 
-let s:R1 = [s:gui_black, s:gui_white, s:cterm_black, s:cterm_white]
+let s:R1 = [s:gui_white, s:gui_lightred, s:cterm_black, s:cterm_white]
 let s:R2 = [s:gui_black, s:gui_lightblue, s:cterm_black, s:cterm_lightblue]
 let s:R3 = [s:gui_white, s:gui_gray, s:cterm_white, s:cterm_gray]
 
