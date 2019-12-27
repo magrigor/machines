@@ -1,0 +1,59 @@
+" >>>--------------------------------------------------------------->
+"       >>
+"      >>->                      >->
+"     >> >->     >> >-->    >--> >->        >-->    >> >--> >->   >->
+"    >->  >->     >->     >->    >->>->   >>   >->   >->     >-> >->
+"   >----->>->    >->    >->     >->  >-> >>--->>->  >->       >-->
+"  >->      >->   >->     >->    >>   >-> >>         >->        >->
+" >->        >-> >-->       >--> >->  >->  >---->   >-->       >->
+"                                                            >->
+" >>>--------------------------------------------------------------->
+"
+" Author: magrigor
+" License: MIT
+" Description: Lightline colorscheme inspired by Arch Linux colors
+" Version: 0.1
+" >>>--------------------------------------------------------------->
+"
+
+highlight clear
+
+" let s:blue      = '#0088CC'
+" let s:lightblue = '#81A3CF'
+" let s:black     = '#222222'
+" let s:gray      = '#333333'
+" let s:lightgray = '#53586F'
+" let s:white     = '#F6F9FC'
+" let s:yellow    = '#EAC06E'
+" let s:red       = '#C95F5F'
+
+highlight Border cterm=none ctermfg=236 ctermbg=236
+
+highlight TopLine cterm=none ctermfg=7 ctermbg=235
+highlight TopLineSel cterm=none ctermfg=white ctermbg=25
+" highlight TopLineSel cterm=none ctermfg=250 ctermbg=4
+
+" highlight Win cterm=none ctermfg=26 ctermbg=236
+highlight Win cterm=none ctermfg=7 ctermbg=236
+highlight Directory cterm=bold ctermfg=4 ctermbg=236
+highlight CurrLine cterm=bold ctermfg=7 ctermbg=25
+" highlight OtherLine	cterm=none	ctermfg=247	ctermbg=237
+" highlight OtherLine	cterm=none	ctermfg=117	ctermbg=237
+" highlight OtherLine	cterm=underline,reverse	ctermfg=7	ctermbg=237
+" highlight OtherLine	cterm=underline,reverse	ctermfg=67	ctermbg=237
+" highlight OtherLine	cterm=underline,reverse	ctermfg=59	ctermbg=237
+highlight OtherLine	cterm=none	ctermfg=7	ctermbg=237
+highlight Selected cterm=none ctermfg=236 ctermbg=208
+
+highlight JobLine	cterm=bold	ctermfg=4	ctermbg=236
+highlight StatusLine cterm=bold ctermfg=255 ctermbg=25
+highlight ErrorMsg cterm=none ctermfg=250 ctermbg=124
+highlight WildMenu cterm=none ctermfg=7 ctermbg=237 
+highlight CmdLine cterm=none ctermfg=white ctermbg=240
+
+highlight Executable cterm=bold ctermfg=14 ctermbg=236
+highlight Link cterm=bold ctermfg=33 ctermbg=236
+highlight BrokenLink cterm=bold ctermfg=red ctermbg=none
+highlight Device cterm=bold ctermfg=red ctermbg=black
+highlight Fifo cterm=bold ctermfg=cyan ctermbg=none
+highlight Socket cterm=bold ctermfg=magenta ctermbg=black
