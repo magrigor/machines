@@ -1,0 +1,36 @@
+set nocompatible
+filetype indent plugin on
+syntax on
+set laststatus=2
+set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+set ruler
+set number
+let no_buffers_menu=1
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
+set ttyfast
+set ma
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set wildignore+=*/tmp/*,*/node_modules/*,*/dist/*,*.so,*.swp,*.zip
+set fileformats=unix,dos,mac
+set backspace=indent,eol,start
+set autoindent
+set confirm
+set tabstop=4
+set softtabstop=0
+set shiftwidth=4
+set expandtab
+set modeline
+set modelines=10
+set hidden
+set noswapfile
+set nobackup
+set showcmd
+set showmode
+set visualbell
+set t_vb=
+set mouse=a

@@ -1,0 +1,17 @@
+accept_all_cookies=on
+case_sensitive_searching=on
+dir_list_order=ORDER_BY_NAME
+dir_list_style=MIXED_STYLE
+emacs_keys=off
+file_sorting_method=BY_FILENAME
+keypad_mode=LINKS_ARE_NUMBERED
+preferred_language=en
+select_popups=on
+show_color=default
+show_cursor=off
+show_dotfiles=off
+sub_bookmarks=OFF
+verbose_images=on
+vi_keys=on
+visited_links=LAST_REVERSED
+
