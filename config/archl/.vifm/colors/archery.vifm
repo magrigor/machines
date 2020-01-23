@@ -43,7 +43,7 @@ highlight CurrLine cterm=bold ctermfg=7 ctermbg=25
 " highlight OtherLine	cterm=underline,reverse	ctermfg=67	ctermbg=237
 " highlight OtherLine	cterm=underline,reverse	ctermfg=59	ctermbg=237
 highlight OtherLine	cterm=none	ctermfg=7	ctermbg=237
-highlight Selected cterm=none ctermfg=236 ctermbg=208
+highlight Selected cterm=none ctermfg=236 ctermbg=14
 
 highlight JobLine	cterm=bold	ctermfg=4	ctermbg=236
 highlight StatusLine cterm=bold ctermfg=255 ctermbg=25

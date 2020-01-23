@@ -1,0 +1,12 @@
+[user]
+	email = maxim.agrigoroae@travelex.com
+	username = Maxim Agrigoroae
+	signingkey = 09223BE4CED4AC8370975BAE39705F5D53438518
+	name = Maxim Agrigoroae
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[core]
+	editor = vim
