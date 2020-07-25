@@ -141,6 +141,8 @@ command! make !!make %a
 command! mkcd :mkdir %a | cd %a
 command! vgrep vim "+grep %a"
 command! reload :write | restart
+command! gdiff git difftool --no-prompt %f
+command  vim vim -O %f %F
 
 " ------------------------------------------------------------------------------
 
@@ -488,5 +490,3 @@ fileviewer *.exe
 
 " set default statuline
 set statusline="  %t%= %A %10u:%-7g %15E %20d  "
-" command diff vim -d %f %F
-command vimo vim -O %f %F
