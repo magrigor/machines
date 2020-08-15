@@ -1,11 +1,11 @@
-" vim-bootstrap 
+" vim-bootstrap
 
 "*****************************************************************************
 "" Vim-PLug core
 "*****************************************************************************
 let vimplug_exists=expand('~/.vim/autoload/plug.vim')
 
-let g:vim_bootstrap_langs = "go,javascript,typescript"
+let g:vim_bootstrap_langs = "go"
 let g:vim_bootstrap_editor = "vim"				" nvim or vim
 
 if !filereadable(vimplug_exists)
@@ -27,8 +27,7 @@ call plug#begin(expand('~/.vim/plugged'))
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
@@ -43,6 +42,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
+Plug 'Quramy/tsuquyomi'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -60,12 +60,8 @@ Plug 'Shougo/vimproc.vim', {'do': g:make}
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 
-"" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
 "" Color
-Plug 'tomasr/molokai'
+Plug 'vim-scripts/twilight'
 
 "*****************************************************************************
 "" Custom bundles
@@ -74,16 +70,6 @@ Plug 'tomasr/molokai'
 " go
 "" Go Lang Bundle
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
-
-
-" javascript
-"" Javascript Bundle
-Plug 'jelera/vim-javascript-syntax'
-
-
-" typescript
-Plug 'leafgarland/typescript-vim'
-Plug 'HerringtonDarkholme/yats.vim'
 
 
 "*****************************************************************************
@@ -108,6 +94,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 set ttyfast
+set ma
 
 "" Fix backspace indent
 set backspace=indent,eol,start
@@ -119,7 +106,7 @@ set shiftwidth=4
 set expandtab
 
 "" Map leader to ,
-let mapleader=','
+let mapleader=","
 
 "" Enable hidden buffers
 set hidden
@@ -129,6 +116,7 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set wildignore+=*/tmp/*,*/node_modules/*,*/dist/*,*.so,*.swp,*.zip
 
 set fileformats=unix,dos,mac
 
@@ -152,8 +140,7 @@ set ruler
 set number
 
 let no_buffers_menu=1
-silent! colorscheme molokai
-
+silent! colorscheme twilight256
 set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
@@ -173,7 +160,7 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
-  
+
   if $COLORTERM == 'gnome-terminal'
     set term=gnome-256color
   else
@@ -181,7 +168,7 @@ else
       set term=xterm-256color
     endif
   endif
-  
+
 endif
 
 
@@ -217,7 +204,7 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'night_owl'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -239,18 +226,6 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
 
-"" NERDTree configuration
-let g:NERDTreeChDirMode=2
-let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
-let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
-let g:NERDTreeShowBookmarks=1
-let g:nerdtree_tabs_focus_on_files=1
-let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
-let g:NERDTreeWinSize = 50
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
-nnoremap <silent> <F2> :NERDTreeFind<CR>
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
-
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
 let Grep_Default_Options = '-IR'
@@ -259,6 +234,7 @@ let Grep_Skip_Dirs = '.git node_modules'
 
 " terminal emulation
 nnoremap <silent> <leader>sh :terminal<CR>
+nnoremap <F3> :set list!<CR>
 
 
 "*****************************************************************************
@@ -369,13 +345,6 @@ nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>e :FZF -m<CR>
 "Recovery commands from history through FZF
 nmap <leader>y :History:<CR>
-
-" snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-let g:UltiSnipsEditSplit="vertical"
-
 " ale
 let g:ale_linters = {}
 
@@ -505,20 +474,6 @@ augroup END
     \"go": ['golint', 'go vet'], })
 
 
-" javascript
-let g:javascript_enable_domhtmlcss = 1
-
-" vim-javascript
-augroup vimrc-javascript
-  autocmd!
-  autocmd FileType javascript setl tabstop=4|setl shiftwidth=4|setl expandtab softtabstop=4
-augroup END
-
-
-" typescript
-let g:yats_host_keyword = 1
-
-
 
 "*****************************************************************************
 "*****************************************************************************
@@ -567,3 +522,33 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+
+" Ctrlp {{{
+
+let g:ctrlp_match_window = "bottom,order:btt"   " Order file matches from bottom to top
+let g:ctrlp_dont_split = 'netrw'                " Prevent from opening a new window
+let g:ctrlp_working_path_mode = 0               " Don't change working directory based on current buffer
+
+" use ripgrep silversearch for fastest search
+if executable('rg')
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_use_caching = 0
+else
+  " Add linux alternative scenario if needed
+  " Use the silver search if ripgrep is missing
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g "" -U'
+  let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp' " Persist the CtrlP cache
+  let g:ctrlp_use_caching = 1                     " Enable CtrlP caching
+endif
+" }}}
+
+"" Set python executable path
+"" let g:python_host_prog = '/c/Users/magrigoroae/AppData/Local/Programs/Python/Python37'
+"" let g:python_host_prog = expand('C:\\Users\\magrigoroae\\AppData\\Local\\Programs\\Python\\Python37')
+"" let g:python3_host_prog = expand('/c/Users/magrigoroae/AppData/Local/Programs/Python/Python37')
+set pythonhome=C:\\Python27
+set pythondll=C:\\Python27\\python27.dll
+set pythonthreehome=C:\\Users\\magrigoroae\\AppData\\Local\\Programs\\Python\\Python37
+set pythonthreedll=C:\\Users\\magrigoroae\\AppData\\Local\\Programs\\Python\\Python37\\python37.dll
+noremap <F7> gg=G<C-o><C-o>
